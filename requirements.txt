@@ -1,0 +1,6 @@
+fastapi
+ipfshttpclient
+Pillow
+eth-brownie
+uvicorn==0.23.2
+openai

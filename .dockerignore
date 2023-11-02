@@ -1,0 +1,48 @@
+# Exclude Python bytecode files
+*.pyc
+__pycache__/
+**/__pycache__/
+.pytest_cahce/
+**/build/
+
+# Exclude development and local environment files
+.env
+.env.*
+venv/
+.envrc
+env
+.env.example
+init-venv.sh
+.pre-commit-config.yaml
+
+# Exclude version control files and directories
+.git
+.gitignore
+
+# Exclude editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Exclude build and distribution files
+build/
+dist/
+*.egg-info/
+**/server_app/src/*
+cmd
+
+# Exclude log files
+*.log
+
+# Exclude temporary files
+*.tmp
+*.bak
+*.swp
+
+Dockerfile
+.gitattributes
+.dockerignore
+
+# Exclude images
+**/*.png
