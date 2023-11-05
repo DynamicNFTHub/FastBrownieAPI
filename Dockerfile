@@ -16,6 +16,9 @@ RUN pip install --no-cache-dir --upgrade -r /usr/src/app/requirements.txt
 # Copy app
 COPY ./ /usr/src/app/
 
+# Create empty dir for future images and metadata files
+RUN mkdir -p /usr/src/app/server_app/src
+
 # Set up directory for brownie and compile
 WORKDIR /usr/src/app/brownie_app
 RUN brownie compile

@@ -23,7 +23,7 @@ def main():
     )
 
     calculated_index: dict = index_calculator.get_calculated_index()
-    print(calculated_index)
+    print(f'Calculated index:\n{calculated_index}')
 
     # 2.Build image
     image_prompt: str = config['image_generator'].get('prompt')
