@@ -7,7 +7,6 @@ from scripts.update_index import update_index
 
 
 def main():
-    print(config)
 
     # 1.Calculate index
     index_assets_config = [
@@ -28,26 +27,27 @@ def main():
 
     # 2.Build image
     image_prompt: str = config['image_generator'].get('prompt')
-    # generated_image_name: str = get_generated_image_name(image_prompt)
+    generated_image_name: str = get_generated_image_name(image_prompt)
 
     generated_index_image_path, generated_index_image_name = get_generated_index_image_name(
-        image_name='DALLe-3-1_resized.png', 
+        image_name=generated_image_name, 
         final_index_config=calculated_index
     )
     print(f'Image {generated_index_image_name} stored to:{generated_index_image_path}')
 
-    # # 3.Upload metadata json to IPFS
-    # ipfs_loader = IPFSLoader()
-    # ipfs_metadata_link: str = ipfs_loader.get_uploadet_metadata_link(
-    #     generated_index_image_path, generated_index_image_name
-    # )
-    # print(ipfs_metadata_link)
+    # 3.Upload metadata json to IPFS
+    ipfs_loader = IPFSLoader()
+    ipfs_metadata_link: str = ipfs_loader.get_uploadet_metadata_link(
+        generated_index_image_path, generated_index_image_name
+    )
+    print(f'NFT medata for update:\n{ipfs_metadata_link}')
 
     # 4.Update URI Metadata
-    # update_index(
-    #     dindex_contact_address='0x271c2Bf44283cC5770Fc5005bdDD3817609aAEF9',
-    #     ipfs_metadata_link=ipfs_metadata_link,
-    #     token_id=1
-    # )
+    update_transaction = update_index(
+        dindex_contact_address='0x271c2Bf44283cC5770Fc5005bdDD3817609aAEF9',
+        ipfs_metadata_link=ipfs_metadata_link,
+        token_id=1
+    )
+    print(f'Update transaction: {update_transaction}')
 
 

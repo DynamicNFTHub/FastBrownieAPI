@@ -46,3 +46,6 @@ Dockerfile
 
 # Exclude images
 **/*.png
+
+# Exclude metadata.json
+metadata.json
