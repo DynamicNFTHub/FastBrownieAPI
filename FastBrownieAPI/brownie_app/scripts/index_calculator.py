@@ -50,7 +50,6 @@ class IndexCalculator:
         headers = {
             'X-CMC_PRO_API_KEY': config['price_provider'].get('api_key')
         }
-        print(f'PRICE_PROVIDER: {self.price_provider}')
         response = requests.get(self.price_provider, params=parameters, headers=headers)
         data = response.json()
         if token_symbol in data['data']:

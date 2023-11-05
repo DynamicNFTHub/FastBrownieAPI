@@ -7,6 +7,7 @@ from scripts.update_index import update_index
 
 
 def main():
+    print(config)
 
     # 1.Calculate index
     index_assets_config = [
@@ -35,18 +36,18 @@ def main():
     )
     print(f'Image {generated_index_image_name} stored to:{generated_index_image_path}')
 
-    # 3.Upload metadata json to IPFS
-    ipfs_loader = IPFSLoader()
-    ipfs_metadata_link: str = ipfs_loader.get_uploadet_metadata_link(
-        generated_index_image_path, generated_index_image_name
-    )
-    print(ipfs_metadata_link)
+    # # 3.Upload metadata json to IPFS
+    # ipfs_loader = IPFSLoader()
+    # ipfs_metadata_link: str = ipfs_loader.get_uploadet_metadata_link(
+    #     generated_index_image_path, generated_index_image_name
+    # )
+    # print(ipfs_metadata_link)
 
     # 4.Update URI Metadata
-    update_index(
-        dindex_contact_address='0x271c2Bf44283cC5770Fc5005bdDD3817609aAEF9',
-        ipfs_metadata_link=ipfs_metadata_link,
-        token_id=1
-    )
+    # update_index(
+    #     dindex_contact_address='0x271c2Bf44283cC5770Fc5005bdDD3817609aAEF9',
+    #     ipfs_metadata_link=ipfs_metadata_link,
+    #     token_id=1
+    # )
 
 
