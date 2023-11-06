@@ -3,6 +3,13 @@
 This project combined a framework for interactive with smart-contracts and a server that receives requests for NFT metadata updating. Main goal - build INDEX NFT with automate updating
 
 
+## App requirement
+
+List of things you need for the app to work:
+
+1. NFT with method ```setTokenURI``` that you can call and set
+2. wrapped NFT with your original NFT from step 1 with, and some collateral assets in it (mean assets that you put in wNFT when wrapping). Check https://envelop.is/ for more information
+
 ## Installation
 
 To set up the project, follow these steps:
@@ -36,3 +43,16 @@ To set up the project, follow these steps:
 
 6. All generated images from OpenAI and metada.json stored in 
 ```/server_app/src/``` directory
+
+## App flow
+
+Explanation what app do:
+
+1. Pulling price for each token that you define as collateral assets config from Coinmarketcap
+2. Calculate total sum of all collateral assets depends on current token price
+3. Provided prompt for image used in OpenAPI, result stored localy
+4. Index price calculated on second step used for overlaying it to image from OpenAI
+5. Index image saved to IPFS
+6. Building metadata.json with information about NFT and IPFS link to image
+7. Store metadata.json to IPFS
+8. call ```setTokenURI``` and store in it new version of metadata.json
